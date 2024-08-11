@@ -10,6 +10,7 @@ namespace CSharpHomeWork.Phonebook
 			IPhoneBookDB phoneBookDB = new PhoneBook();
 			IPhoneBookWriter phoneBookWriter = new PhoneBookWriter();
 			IAbonentReader abonentReader = new ConsoleAbonentReader();
+			IPhoneBookFinder abonentFinder = new PhoneBookFinder(phoneBookDB);
 
 			ConsoleMenu menu = new ConsoleMenu();
 
@@ -18,7 +19,7 @@ namespace CSharpHomeWork.Phonebook
 			menu.AddCommand(new AddAbonentCommand(phoneBookDB, abonentReader));
 			menu.AddCommand(new SaveAbonentsCommand(phoneBookDB, phoneBookWriter, fileName));
 			menu.AddCommand(new LoadAbonentsCommand(phoneBookDB, phoneBookWriter, fileName));
-
+			menu.AddCommand(new FinderAbonentCommand(phoneBookDB, abonentFinder));
 			menu.Run();
 		}
 	}

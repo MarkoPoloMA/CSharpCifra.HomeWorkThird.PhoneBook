@@ -45,10 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbonentClass.cs" />
+    <Compile Include="Abonent.cs" />
     <Compile Include="ConsoleMenu.cs" />
     <Compile Include="IAbonentReader.cs" />
     <Compile Include="IPhoneBookDB.cs" />
+    <Compile Include="IPhoneBookFinder.cs" />
     <Compile Include="IPhoneBookWriter.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="PhoneBookPrint.cs" />

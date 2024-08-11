@@ -89,7 +89,7 @@ namespace CSharpHomeWork.Phonebook
 
 	public class LoadAbonentsCommand : ICommand
 	{
-		private IPhoneBookWriter phoneBookWriter = new PhoneBookWriter();
+		private IPhoneBookWriter phoneBookWriter;
 		private string filename;
 		private readonly IPhoneBookDB phoneBookDB;
 		public LoadAbonentsCommand(IPhoneBookDB phoneBookDB, IPhoneBookWriter phoneBookWriter, string fileName)
@@ -109,6 +109,26 @@ namespace CSharpHomeWork.Phonebook
 			phoneBookDB.SetList(allAbonents);
 			Console.ReadKey();
 			Console.WriteLine();
+		}
+    }
+	public class FinderAbonentCommand : ICommand
+	{
+		private IPhoneBookDB phoneBookDB;
+		private IPhoneBookFinder phoneBookFinder;
+
+		public FinderAbonentCommand(IPhoneBookDB phoneBookDB, IPhoneBookFinder phoneBookFinder)
+		{
+			this.phoneBookFinder = phoneBookFinder;
+			this.phoneBookDB = phoneBookDB;
+		}
+		public void Execute()
+		{
+			Console.WriteLine("Введите имя для поиска: ");
+			string name = Console.ReadLine();
+
+			Abonent abonent = phoneBookFinder.FinderOnNameAbonent(name);
+
+			Console.WriteLine(abonent != null ? $"Абонент с именем {abonent.GetName()} имеет телефон {abonent.GetTelefoneNumber()}" : "Такого абонента нет!");
 		}
 	}
 }

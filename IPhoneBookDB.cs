@@ -8,6 +8,7 @@ namespace CSharpHomeWork.Phonebook
 		public abstract void DeleteNumber(Abonent abonent);
 		public abstract List<Abonent> GetAllAbonents();
 		public abstract void SetList(List<Abonent> abonents);
+		public abstract int GetSize();
 	}
 
 	internal class PhoneBook : IPhoneBookDB
@@ -28,6 +29,10 @@ namespace CSharpHomeWork.Phonebook
 		public override void SetList(List<Abonent> abonents)
 		{
 			this.abonents = abonents;
+		}
+		public override int GetSize()
+		{
+			return abonents.Count;
 		}
 	}
 	
