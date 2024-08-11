@@ -1,9 +1,9 @@
 ﻿
 namespace CSharpHomeWork.Phonebook
 {
-	class Program
+	internal class Program
 	{
-		static void Main()
+		private static void Main()
 		{
 			const string fileName = @"C:\Users\DELL\source\repos\C#\CSharpHomeWork.Phonebook\phonebook.txt";
 

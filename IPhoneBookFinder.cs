@@ -1,4 +1,6 @@
-﻿namespace CSharpHomeWork.Phonebook
+﻿using System.Linq;
+
+namespace CSharpHomeWork.Phonebook
 {
 	public abstract class IPhoneBookFinder
 	{
@@ -15,23 +17,11 @@
 		}
 		public override Abonent FinderOnNameAbonent(string name)
 		{
-			foreach (var abonent in phoneBookDB.GetAllAbonents())
-			{
-				if (abonent.GetName() == name)
-					return abonent;
-			}
-
-			return null;
+			return phoneBookDB.GetAllAbonents().FirstOrDefault(abonent => abonent.GetName() == name);
 		}
 		public override Abonent FinderOnTelefoneNumberAbonent(long telefone)
 		{
-			foreach (var abonent in phoneBookDB.GetAllAbonents())
-			{
-				if (abonent.GetTelefoneNumber() == telefone)
-					return abonent;
-			}
-
-			return null;
+			return phoneBookDB.GetAllAbonents().FirstOrDefault(abonent => abonent.GetTelefoneNumber() == telefone);
 		}
 	}
 }

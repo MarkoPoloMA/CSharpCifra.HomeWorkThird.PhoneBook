@@ -7,22 +7,22 @@ namespace CSharpHomeWork.Phonebook
 {
 	public abstract class IPhoneBookWriter
 	{
-		public abstract void WriteToFile(List<Abonent> abonents, string filename);
+		public abstract void WriteToFile(List<Abonent> abonents, string fileName);
 		public abstract List<Abonent> ReadFromFile(string filename);
 	}
 
 	internal class PhoneBookWriter : IPhoneBookWriter
 	{
-		public override void WriteToFile(List<Abonent> abonents, string filename)
+		public override void WriteToFile(List<Abonent> abonents, string fileName)
 		{
 			try
 			{
-				if (File.Exists(filename))
-					File.Delete(filename);
+				if (File.Exists(fileName))
+					File.Delete(fileName);
 
 				var list = abonents.Select(abonent => abonent.ToString()).ToList();
 
-				File.WriteAllLines(filename, list);
+				File.WriteAllLines(fileName, list);
 			}
 			catch (Exception ex)
 			{
