@@ -4,29 +4,29 @@ namespace CSharpHomeWork.Phonebook
 {
 	public abstract class IPhoneBookDB
 	{
-		public abstract void AddNumber(Abonent abonent);
-		public abstract void DeleteNumber(Abonent abonent);
-		public abstract List<Abonent> GetAllAbonents();
-		public abstract void SetList(List<Abonent> abonents);
+		public abstract bool AddList(Abonent abonent);
+		public abstract void Delete(Abonent abonent);
+		public abstract HashSet<Abonent> GetAllAbonents();
+		public abstract void SetList(HashSet<Abonent> abonents);
 		public abstract int GetSize();
 	}
 
 	internal class PhoneBook : IPhoneBookDB
 	{
-		private List<Abonent> abonents = new();
-		public override void AddNumber(Abonent abonent)
+		private HashSet<Abonent> abonents = new();
+		public override bool AddList(Abonent abonent)
 		{
-			abonents.Add(abonent);
+			return abonents.Add(abonent);
 		}
-		public override void DeleteNumber(Abonent abonent)
+		public override void Delete(Abonent abonent)
 		{
 			abonents.Remove(abonent);
 		}
-		public override List<Abonent> GetAllAbonents()
+		public override HashSet<Abonent> GetAllAbonents()
 		{
 			return abonents;
 		}
-		public override void SetList(List<Abonent> abonents)
+        public override void SetList(HashSet<Abonent> abonents)
 		{
 			this.abonents = abonents;
 		}
@@ -35,5 +35,4 @@ namespace CSharpHomeWork.Phonebook
 			return abonents.Count;
 		}
 	}
-	
 }

@@ -7,13 +7,13 @@ namespace CSharpHomeWork.Phonebook
 {
 	public abstract class IPhoneBookWriter
 	{
-		public abstract void WriteToFile(List<Abonent> abonents, string fileName);
-		public abstract List<Abonent> ReadFromFile(string filename);
+		public abstract void WriteToFile(HashSet<Abonent> abonents, string fileName);
+		public abstract HashSet<Abonent> ReadFromFile(string filename);
 	}
 
 	internal class PhoneBookWriter : IPhoneBookWriter
 	{
-		public override void WriteToFile(List<Abonent> abonents, string fileName)
+		public override void WriteToFile(HashSet<Abonent> abonents, string fileName)
 		{
 			try
 			{
@@ -29,9 +29,9 @@ namespace CSharpHomeWork.Phonebook
 				Console.WriteLine("Erorr: " + ex.Message);
 			}
 		}
-		public override List<Abonent> ReadFromFile(string filename)
+		public override HashSet<Abonent> ReadFromFile(string filename)
 		{
-			List<Abonent> abonents = new List<Abonent>();
+			HashSet<Abonent> abonents = new HashSet<Abonent>();
 			try
 			{
 				var readAllLines = File.ReadAllLines(filename);

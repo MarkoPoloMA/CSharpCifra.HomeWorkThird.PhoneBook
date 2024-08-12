@@ -6,7 +6,6 @@ namespace CSharpHomeWork.Phonebook
 	public class ConsoleMenu
 	{
 		private List<ICommand> commands = new();
-
 		public void AddCommand(ICommand command)
 		{
 			commands.Add(command);
@@ -18,7 +17,7 @@ namespace CSharpHomeWork.Phonebook
 				Console.WriteLine("Выберите команду: ");
 				for (int i = 0; i < commands.Count; i++)
 				{
-					Console.WriteLine($"{i + 1}. {commands[i].GetType().Name}");
+					Console.WriteLine($"{i + 1}. {commands[i].Name}");
 				}
 				Console.WriteLine("0. Выход");
 
