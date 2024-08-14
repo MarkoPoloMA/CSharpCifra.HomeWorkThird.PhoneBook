@@ -5,7 +5,7 @@ namespace CSharpHomeWork.Phonebook
 	public abstract class IPhoneBookDB
 	{
 		public abstract bool AddList(Abonent abonent);
-		public abstract void Delete(Abonent abonent);
+		public abstract bool Delete(Abonent abonent);
 		public abstract HashSet<Abonent> GetAllAbonents();
 		public abstract void SetList(HashSet<Abonent> abonents);
 		public abstract int GetSize();
@@ -18,9 +18,9 @@ namespace CSharpHomeWork.Phonebook
 		{
 			return abonents.Add(abonent);
 		}
-		public override void Delete(Abonent abonent)
+		public override bool Delete(Abonent abonent)
 		{
-			abonents.Remove(abonent);
+			return abonents.Remove(abonent);
 		}
 		public override HashSet<Abonent> GetAllAbonents()
 		{
