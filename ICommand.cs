@@ -77,8 +77,8 @@ namespace CSharpHomeWork.Phonebook
 		public void Execute()
 		{
 			Abonent abonent = abonentReader.Read();
-			phoneBookDB.Delete(abonent);
-			phoneBookPrint.WriteToConsole(abonent, "удален");
+
+			phoneBookPrint.WriteToConsole(abonent, phoneBookDB.Delete(abonent) ? "удален" : "такого объекта не существует");
 		}
 		public string Name => "Удалить абонента по номеру";
 	}
